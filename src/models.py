@@ -1,4 +1,4 @@
-from sqlmodel import Field, SQLModel, Session
+from sqlmodel import Field, SQLModel
 
 from typing import Optional
 from datetime import datetime,timezone, timedelta

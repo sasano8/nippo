@@ -8,26 +8,15 @@ app = FastAPI()
 def list_diary(db: Session = Depends(session)):
   stmt = Diary.select()
   results = db.exec(stmt)
-  return list(dict(**x) for x in results)
-"""
-# Diaryが邪魔
-{
-    "Diary": {
-      "working_at": "2022-11-03T01:27:24.922000",
-      "id": 0,
-      "text2": "string",
-      "start_at": "2022-11-03T01:27:24.922000",
-      "end_at": "2022-11-03T01:27:24.922000",
-      "text1": "string",
-      "locked": false
-    }
-  }
-"""
+  return results.scalars().all()
+
 
   
 @app.post("/create/diary")
 def create_diary(db: Session = Depends(session), *, diary: Diary):
+  diary.id = None
   db.add(diary)
+  db.flush()
   return diary
 
 
