@@ -25,6 +25,6 @@ jobs:
           # Vercel デプロイ時に必要となる各種パラメタを設定する
           # vercel-args: '--prod' # Optional
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          vercel-org-id: ${{ secrets.ORG_ID}}  #Required
-          vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}  #Required
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
           working-directory: ./
